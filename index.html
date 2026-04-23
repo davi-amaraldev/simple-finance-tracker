@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -49,7 +49,7 @@
             <p>Preencha os campos abaixo</p>
           </div>
 
-          <form class="transaction-form">
+          <form id="transactionForm" class="transaction-form">
             <div class="input-group">
               <label for="title">Título</label>
               <input
@@ -90,29 +90,7 @@
             <p>Seu histórico registrado</p>
           </div>
 
-          <div class="transactions-list">
-            <article class="transaction-item income">
-              <div>
-                <h4>Salary</h4>
-                <p class="transaction-type">Receita</p>
-              </div>
-              <div class="transaction-right">
-                <strong>+ R$ 2.500,00</strong>
-                <button class="delete-btn" type="button">Remover</button>
-              </div>
-            </article>
-
-            <article class="transaction-item expense">
-              <div>
-                <h4>Internet</h4>
-                <p class="transaction-type">Despesa</p>
-              </div>
-              <div class="transaction-right">
-                <strong>- R$ 100,00</strong>
-                <button class="delete-btn" type="button">Remover</button>
-              </div>
-            </article>
-
+   <div id="transactionsList" class="transactions-list">
             <article class="transaction-item expense">
               <div>
                 <h4>Comida</h4>
@@ -122,7 +100,7 @@
                 <strong>- R$ 45,90</strong>
                 <button class="delete-btn" type="button">Remover</button>
               </div>
-            </article>
+          </article> 
           </div>
         </section>
       </section>
