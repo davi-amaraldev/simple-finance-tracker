@@ -1,9 +1,33 @@
 import { calculateIncome,calculateExpense,calculateBalance } from './balance.js';
 import { saveTransactions, loadTransactions } from './storage.js';
 import { Transaction } from './transaction.js';
+import { renderSummary, renderTransactions } from './ui.js';
+
+const transactionForm = document.querySelector('#transactionForm');
+const transactionsList = document.querySelector('#transactionsList');
+const titleInput = document.querySelector('#title');
+const amountInput = document.querySelector('#amount');
+const typeInput = document.querySelector('#type');
+
+transactionForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const title = titleInput.value;
+    const amount = amountInput.value;
+    const type = typeInput.value;
+
+    addTransaction(title, amount, type);
+
+    transactionForm.reset();
+})
+
+transactionsList.addEventListener('click', (e) => {
+    if (!e.target.classList.contains('delete-btn')) return;
+
+    const id = e.target.dataset.id;
+    removeTransaction(id);
+})
 
 const state = {
-    // lista de transações do usuário
     transactions: loadTransactions(),
 }
 
@@ -37,5 +61,7 @@ function update(){
     const expense = calculateExpense(transactions);
     const balance = calculateBalance(transactions);
 
+    renderSummary(income, expense, balance);
+    renderTransactions(transactions);
     console.log(income, expense, balance)
 }
