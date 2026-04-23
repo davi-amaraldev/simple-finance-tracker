@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Finance Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Finanças Pessoais</p>
+        <h1>Simple Finance Tracker</h1>
+        <p class="subtitle">
+          Acompanhamento fácil e eficiente das suas finanças pessoais. Registre suas receitas e despesas para ter uma visão clara do seu orçamento e tomar decisões financeiras mais informadas.
+        </p>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <section class="summary">
+        <article class="card summary-card">
+          <p class="card-label">Receitas</p>
+          <h2 id="incomeDisplay">R$ 0,00</h2>
+        </article>
+
+        <article class="card summary-card">
+          <p class="card-label">Despesas</p>
+          <h2 id="expenseDisplay">R$ 0,00</h2>
+        </article>
+
+        <article class="card summary-card balance-card">
+          <p class="card-label">Saldo</p>
+          <h2 id="balanceDisplay">R$ 0,00</h2>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <section class="card form-card">
+          <div class="section-heading">
+            <h3>Adicionar Transação</h3>
+            <p>Preencha os campos abaixo</p>
+          </div>
+
+          <form class="transaction-form">
+            <div class="input-group">
+              <label for="title">Título</label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                placeholder="Example: Salary, Food, Internet"
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="amount">Valor</label>
+              <input
+                type="number"
+                id="amount"
+                name="amount"
+                placeholder="0.00"
+                step="0.01"
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="type">Tipo</label>
+              <select id="type" name="type">
+                <option value="">Selecionar</option>
+                <option value="income">Receita</option>
+                <option value="expense">Despesa</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn-primary">Adicionar Transação</button>
+          </form>
+        </section>
+
+        <section class="card transactions-card">
+          <div class="section-heading">
+            <h3>Transações</h3>
+            <p>Seu histórico registrado</p>
+          </div>
+
+          <div class="transactions-list">
+            <article class="transaction-item income">
+              <div>
+                <h4>Salary</h4>
+                <p class="transaction-type">Receita</p>
+              </div>
+              <div class="transaction-right">
+                <strong>+ R$ 2.500,00</strong>
+                <button class="delete-btn" type="button">Remover</button>
+              </div>
+            </article>
+
+            <article class="transaction-item expense">
+              <div>
+                <h4>Internet</h4>
+                <p class="transaction-type">Despesa</p>
+              </div>
+              <div class="transaction-right">
+                <strong>- R$ 100,00</strong>
+                <button class="delete-btn" type="button">Remover</button>
+              </div>
+            </article>
+
+            <article class="transaction-item expense">
+              <div>
+                <h4>Comida</h4>
+                <p class="transaction-type">Despesa</p>
+              </div>
+              <div class="transaction-right">
+                <strong>- R$ 45,90</strong>
+                <button class="delete-btn" type="button">Remover</button>
+              </div>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
