@@ -9,7 +9,7 @@ const titleInput = document.querySelector('#title');
 const amountInput = document.querySelector('#amount');
 const typeInput = document.querySelector('#type');
 const errorDisplay = document.querySelector('#errorDisplay');
-let errorTimeout;
+let errorTimeout = null;
 
 transactionForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -43,8 +43,13 @@ function addTransaction(title, amount, type){
         return;
     }
 
-    if (numericAmount <= 0 || Number.isNaN(numericAmount)) {
+    if(numericAmount <= 0 || Number.isNaN(numericAmount)) {
         showError('Valor inválido.');
+        return;
+    }
+
+    if(!type){
+        showError('Tipo inválido.')
         return;
     }
 
@@ -82,9 +87,10 @@ function update(){
 function showError(msg){
     errorDisplay.textContent = msg;
 
-    clearTimeout(errorTimeout);
-
-    errorTimeout.setTimeout(() => {
+    if(errorTimeout){
+        clearTimeout(errorTimeout);
+    }
+    errorTimeout = setTimeout(() => {
         errorDisplay.textContent = '';
     }, 1500)
 }
