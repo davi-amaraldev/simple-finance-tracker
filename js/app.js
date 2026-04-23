@@ -92,5 +92,5 @@ function showError(msg){
     }
     errorTimeout = setTimeout(() => {
         errorDisplay.textContent = '';
-    }, 1500)
+    }, 3000)
 }
