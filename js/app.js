@@ -7,11 +7,23 @@ const state = {
     transactions: loadTransactions(),
 }
 
+update();
+
 function addTransaction(title, amount, type){
     const id = crypto.randomUUID()
     const transaction = new Transaction(id, title, Number(amount), type);
 
     state.transactions.push(transaction);
+
+    saveTransactions(state.transactions);
+
+    update();
+}
+
+function removeTransaction(id){
+    state.transactions = state.transactions.filter(transaction => {
+        return transaction.id !== id;
+    });
 
     saveTransactions(state.transactions);
 
