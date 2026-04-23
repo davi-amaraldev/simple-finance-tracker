@@ -8,6 +8,8 @@ const transactionsList = document.querySelector('#transactionsList');
 const titleInput = document.querySelector('#title');
 const amountInput = document.querySelector('#amount');
 const typeInput = document.querySelector('#type');
+const errorDisplay = document.querySelector('#errorDisplay');
+let errorTimeout;
 
 transactionForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -34,8 +36,20 @@ const state = {
 update();
 
 function addTransaction(title, amount, type){
+    const numericAmount = Number(amount);
+
+    if(!title.trim()){
+        showError('Não contém título.');
+        return;
+    }
+
+    if (numericAmount <= 0 || Number.isNaN(numericAmount)) {
+        showError('Valor inválido.');
+        return;
+    }
+
     const id = crypto.randomUUID()
-    const transaction = new Transaction(id, title, Number(amount), type);
+    const transaction = new Transaction(id, title, numericAmount, type);
 
     state.transactions.push(transaction);
 
@@ -63,4 +77,14 @@ function update(){
 
     renderSummary(income, expense, balance);
     renderTransactions(transactions);
+}
+
+function showError(msg){
+    errorDisplay.textContent = msg;
+
+    clearTimeout(errorTimeout);
+
+    errorTimeout.setTimeout(() => {
+        errorDisplay.textContent = '';
+    }, 1500)
 }

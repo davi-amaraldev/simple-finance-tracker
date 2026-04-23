@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Simple Finance Tracker</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
   <div class="app">
     <header class="topbar">
@@ -19,7 +18,8 @@
         <p class="eyebrow">Finanças Pessoais</p>
         <h1>Simple Finance Tracker</h1>
         <p class="subtitle">
-          Acompanhamento fácil e eficiente das suas finanças pessoais. Registre suas receitas e despesas para ter uma visão clara do seu orçamento e tomar decisões financeiras mais informadas.
+          Acompanhamento fácil e eficiente das suas finanças pessoais. Registre suas receitas e despesas para ter uma
+          visão clara do seu orçamento e tomar decisões financeiras mais informadas.
         </p>
       </div>
     </header>
@@ -52,23 +52,12 @@
           <form id="transactionForm" class="transaction-form">
             <div class="input-group">
               <label for="title">Título</label>
-              <input
-                type="text"
-                id="title"
-                name="title"
-                placeholder="Ex: Salário, Alimentação, Internet"
-              />
+              <input type="text" id="title" name="title" placeholder="Ex: Salário, Alimentação, Internet" />
             </div>
 
             <div class="input-group">
               <label for="amount">Valor</label>
-              <input
-                type="number"
-                id="amount"
-                name="amount"
-                placeholder="0.00"
-                step="0.01"
-              />
+              <input type="number" id="amount" name="amount" placeholder="0.00" step="0.01" />
             </div>
 
             <div class="input-group">
@@ -79,7 +68,7 @@
                 <option value="expense">Despesa</option>
               </select>
             </div>
-
+            <div id="errorDisplay" class="error-display"></div>
             <button type="submit" class="btn-primary">Adicionar Transação</button>
           </form>
         </section>
@@ -90,17 +79,8 @@
             <p>Seu histórico registrado</p>
           </div>
 
-   <div id="transactionsList" class="transactions-list">
-            <article class="transaction-item expense">
-              <div>
-                <h4>Comida</h4>
-                <p class="transaction-type">Despesa</p>
-              </div>
-              <div class="transaction-right">
-                <strong>- R$ 45,90</strong>
-                <button class="delete-btn" type="button">Remover</button>
-              </div>
-          </article> 
+          <div id="transactionsList" class="transactions-list">
+
           </div>
         </section>
       </section>
@@ -108,4 +88,5 @@
   </div>
   <script type="module" src="./js/app.js"></script>
 </body>
+
 </html>
