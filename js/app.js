@@ -43,7 +43,7 @@ function addTransaction(title, amount, type){
         return;
     }
 
-    if(numericAmount <= 0 || Number.isNaN(numericAmount)) {
+    if(numericAmount <= 0 || Number.isNaN(numericAmount) || numericAmount > 10000000000000) {
         showError('Valor inválido.');
         return;
     }
