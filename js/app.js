@@ -63,5 +63,4 @@ function update(){
 
     renderSummary(income, expense, balance);
     renderTransactions(transactions);
-    console.log(income, expense, balance)
 }
